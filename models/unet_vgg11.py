@@ -38,7 +38,7 @@ class UnetVgg11(nn.Module):
     def __init(self, num_filters=32):
         super().__init__()
         self.pool = MaxPool2d(kernel_size=2, stride=2)
-        self.encoder = vgg11().features
+        self.encoder = vgg11(pretrained=True).features
         self.relu = self.encoder[1]
         self.conv1 = self.encoder[0]
         self.conv2 = self.encoder[3]
